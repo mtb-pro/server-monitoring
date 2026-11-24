@@ -37,5 +37,7 @@ func main() {
 func checkEnvs() {
 
 	/* Full-Node stuff */
-
+	if envplus.Env("DB_DRIVER") == "" || envplus.Env("DB_NAME") != "postgres" {
+		logrus.Panic("DB environments variable not set")
+	}
 }
